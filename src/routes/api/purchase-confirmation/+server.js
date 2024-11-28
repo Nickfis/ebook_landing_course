@@ -26,7 +26,7 @@ export async function POST({ request }) {
     );
 
     const customerEmail = stripeEvent.data.object.customer_details.email;
-    const customerName = session.customer_details.name;
+    const customerName = stripeEvent.customer_details.name;
 
     const response = await fetch(PDF_GUIDE_URL);
     const pdfBuffer = await response.arrayBuffer();
